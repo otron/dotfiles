@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/odd'
+let g:netrw_dirhist_2='/home/odd/projects/TDT4195-h2014/graphics-lab/02/code'
+let g:netrw_dirhist_3='/home/odd/projects/TDT4195-h2014/graphics-lab/02/code/build'
+let g:netrw_dirhist_4='/home/odd/projects/TDT4195-h2014/graphics-lab/02/code/bin'
+let g:netrw_dirhist_5='/home/odd/projects/TDT4195-h2014/graphics-lab/02/code'
