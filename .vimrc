@@ -73,3 +73,16 @@ set fileencodings=utf-8
 
 " set default netrw/explorer mode list style to 'tree'
 let g:netrw_liststyle=3
+
+" ignore case when searching (no need for \c)
+set ignorecase
+
+" disable arrow key navigation
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
