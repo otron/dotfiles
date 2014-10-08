@@ -156,3 +156,10 @@ bar {
 # hacky stuff
 bindsym $mod+g exec /home/odd/projects/TDT4195-h2014/graphics-lab/02/code/bin/Hello_world_GL
 for_window [title="OpenGL"] floating enable
+
+# something something scratchpad
+
+# audio controls
+bindsym $mod+Mod1+o exec ~/.i3/scripts/changeVolume.sh 5-
+bindsym $mod+Mod1+p exec ~/.i3/scripts/changeVolume.sh 5+
+
