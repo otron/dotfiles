@@ -75,6 +75,9 @@ exec dropbox start
 exec xmodmap -e "clear lock" #disable caps lock switch
 exec xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
 
+#start gnome settings daemon
+exec gnome-settings-daemon
+
 # keyboard layout toggle
 bindsym $mod+control+1 exec setxkbmap us -option "caps:escape" # set US kblayout
 bindsym $mod+control+2 exec setxkbmap no -option "caps:escape" # set norwegian kblayout
@@ -154,7 +157,7 @@ bar {
 }
 
 # hacky stuff
-bindsym $mod+g exec /home/odd/projects/TDT4195-h2014/graphics-lab/02/code/bin/Hello_world_GL
+bindsym $mod+g exec cd /home/odd/projects/TDT4195-h2014/graphics-lab/04/code && make clean && make && cd bin/ && ./Hello_world_GL
 for_window [title="OpenGL"] floating enable
 
 # something something scratchpad
