@@ -11,7 +11,6 @@ import getpass
 class i3_exit:
     def disable_buttons(self):
         self.cancel.set_sensitive(False)
-        self.logout.set_sensitive(False)
         self.suspend.set_sensitive(False)
         self.reboot.set_sensitive(False)
         self.shutdown.set_sensitive(False)
@@ -83,18 +82,19 @@ class i3_exit:
         self.button_box.pack_start(self.cancel)
         self.cancel.show()
 
-        self.lock = gtk.Button("Lock screen")
-        self.lock.set_border_width(4)
-        self.lock.connect("clicked", self.lock_action)
-        self.button_box.pack_start(self.lock)
-        self.lock.show()
+        # Lock button
+       #self.lock = gtk.Button("Lock screen")
+       #self.lock.set_border_width(4)
+       #self.lock.connect("clicked", self.lock_action)
+       #self.button_box.pack_start(self.lock)
+       #self.lock.show()
 
         #Logout button
-        self.logout = gtk.Button("_Log out")
-        self.logout.set_border_width(4)
-        self.logout.connect("clicked", self.logout_action)
-        self.button_box.pack_start(self.logout)
-        self.logout.show()
+       #self.logout = gtk.Button("_Log out")
+       #self.logout.set_border_width(4)
+       #self.logout.connect("clicked", self.logout_action)
+       #self.button_box.pack_start(self.logout)
+       #self.logout.show()
 
         #Suspend button
         self.suspend = gtk.Button("_Suspend")
