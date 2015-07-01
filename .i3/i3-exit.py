@@ -12,6 +12,7 @@ class i3_exit:
     def disable_buttons(self):
         self.cancel.set_sensitive(False)
         self.suspend.set_sensitive(False)
+        self.logout.set_sensitive(False)
         self.reboot.set_sensitive(False)
         self.shutdown.set_sensitive(False)
 
