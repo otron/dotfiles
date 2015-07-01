@@ -143,9 +143,6 @@ bar {
 bindsym $mod+control+1 exec setxkbmap us -option "caps:escape" # set US kblayout
 bindsym $mod+control+2 exec setxkbmap no -option "caps:escape" # set norwegian kblayout
 
-# Screen lock
-bindsym control+Mod1+l exec i3lock -c 000000 #-d
-
 # audio controls
 bindsym $mod+Mod1+o exec ~/.i3/scripts/changeVolume.sh 5-
 bindsym $mod+Mod1+p exec ~/.i3/scripts/changeVolume.sh 5+
