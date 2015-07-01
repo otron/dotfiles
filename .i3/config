@@ -149,3 +149,10 @@ bindsym control+Mod1+l exec i3lock -c 000000 #-d
 # audio controls
 bindsym $mod+Mod1+o exec ~/.i3/scripts/changeVolume.sh 5-
 bindsym $mod+Mod1+p exec ~/.i3/scripts/changeVolume.sh 5+
+
+# Screen lock
+bindsym control+Mod1+l exec i3lock -c 000000 #-d
+
+# logout/shutdown popup
+bindsym $mod+Shift+x exec python ~/.i3/i3-exit.py
+for_window [class="I3-exit" instance="i3-exit"] floating enable
