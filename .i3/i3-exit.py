@@ -91,11 +91,11 @@ class i3_exit:
        #self.lock.show()
 
         #Logout button
-       #self.logout = gtk.Button("_Log out")
-       #self.logout.set_border_width(4)
-       #self.logout.connect("clicked", self.logout_action)
-       #self.button_box.pack_start(self.logout)
-       #self.logout.show()
+        self.logout = gtk.Button("_Log out")
+        self.logout.set_border_width(4)
+        self.logout.connect("clicked", self.logout_action)
+        self.button_box.pack_start(self.logout)
+        self.logout.show()
 
         #Suspend button
         self.suspend = gtk.Button("_Suspend")
