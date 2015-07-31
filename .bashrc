@@ -23,3 +23,4 @@ alias gr="git remote -v"
 
 # Load more specific setting files
 source .bash_osx
+source .git-completion.bash
