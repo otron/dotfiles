@@ -29,6 +29,9 @@ Plugin 'gmarik/Vundle.vim'
 " Julia-vim
 Plugin 'JuliaLang/julia-vim'
 
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'scrooloose/nerdtree'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -86,3 +89,8 @@ inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
+
+" backspace issues on osx
+set backspace=2
+
+map <C-n> :NERDTreeToggle<CR>
