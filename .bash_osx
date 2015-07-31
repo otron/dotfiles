@@ -1,2 +1,4 @@
 # utf-8!
 export LANG='en_US.UTF-8'
+
+alias keepass="screen -dmS keepass mono $HOME/Dropbox/Private/KeePass/KeePass.exe"
