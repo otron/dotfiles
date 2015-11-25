@@ -29,8 +29,12 @@ Plugin 'gmarik/Vundle.vim'
 " Julia-vim
 Plugin 'JuliaLang/julia-vim'
 
+" Added at CERN
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'fisadev/vim-isort'
+Plugin 'scrooloose/syntastic'
+Plugin 'altercation/vim-colors-solarized.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -51,7 +55,10 @@ filetype plugin indent on    " required
 syntax on
 
 " enables automatic C-like indentation
-set smartindent
+" 'smartindent' enforces removal of indent on lines starting with '#'
+" which is hella lame when working with <any language that uses '#' for
+" comments>
+set cindent
 
 " size of hard tab stop
 set tabstop=4
@@ -74,9 +81,6 @@ match ErrorMsg '\s\+$'
 " set character encoding
 set fileencodings=utf-8
 
-" set default netrw/explorer mode list style to 'tree'
-let g:netrw_liststyle=3
-
 " ignore case when searching (no need for \c)
 set ignorecase
 
@@ -90,7 +94,39 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
-" backspace issues on osx
-set backspace=2
+" fix backspace?
+set backspace=start,eol,indent
 
+" Open NerdTree with CTRL-n
 map <C-n> :NERDTreeToggle<CR>
+
+" Show hidden files by default
+let NERDTreeShowHidden=1
+
+" syntastic recommended init settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_python_checkers = ['pep8', 'pylint', 'python']
+let g:syntastic_python_pep8_args='--ignore=E712,E226'
+
+" Added this sometime in autumn 2015 to try and resolve some issue with
+" syntastic messing up the statusline. Seems to have worked, since the 
+" problem disappeared. Can't remember what it was, though.
+set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+
+" Disable audible bell by enabling visual bell (lol), for macvim
+set vb
+
+" Set color scheme to solarized when using [gm]vim
+if has('gui_running')
+    set background=dark
+    colorscheme solarized
+    set gfn=Monaco:h15
+endif
