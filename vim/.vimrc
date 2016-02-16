@@ -30,11 +30,14 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'JuliaLang/julia-vim'
 
 " Added at CERN
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'fisadev/vim-isort'
-Plugin 'scrooloose/syntastic'
-Plugin 'altercation/vim-colors-solarized.git'
+" only enable plugins for [mg]vim
+if has('gui_running')
+    Plugin 'editorconfig/editorconfig-vim'
+    Plugin 'scrooloose/nerdtree'
+    Plugin 'fisadev/vim-isort'
+    Plugin 'scrooloose/syntastic'
+    Plugin 'altercation/vim-colors-solarized.git'
+endif
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

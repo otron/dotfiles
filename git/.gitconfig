@@ -1,11 +1,14 @@
+# This is Git's per-user configuration file.
 [user]
-	name = Odd
-	email =
+    name = otron
+    email =
 [push]
-	default = simple
+    default = simple
 [color]
-	ui = true
+    ui = true
 [core]
-	pager = less -FXRS -x4
-	excludesfile = /Users/odd/.gitignore_global
-	editor = /usr/local/bin/mvim
+    excludesfile = /Users/zen/.gitignore_global
+    pager = less -FXRS -x4
+    editor = vim
+[alias]
+    l = log --oneline -1

@@ -13,7 +13,7 @@ export EDITOR='vim'
 # Show git repository in command prompt
 export GIT_PS1_SHOWDIRTYSTATE=1
 # export PS1='[ \[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\] ]\n\$\[\033[00m\] '
-export PS1='[\u@\h: \w]\n\$ '
+PS1='[\u@\h: \w]\n\$ '
 
 # forces prompt to appear at bottom of terminal
 # thanks https://unix.stackexchange.com/questions/153102/how-to-start-xterm-with-prompt-at-the-bottom
@@ -30,6 +30,9 @@ alias gr="git remote -v"
 # Load more specific setting files
 source ~/.bash_osx
 source ~/.git-completion.bash
+
+alias redison="screen -dmS redis redis-server"
+alias redisoff="redis-cli shutdown"
 
 # locale fix. Can't remember what for.
 export LC_ALL=en_US.UTF-8
