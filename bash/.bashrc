@@ -8,6 +8,9 @@ bind 'set completion-ignore-case on'
 # adding julia to PATH
 export PATH="/home/$USER/julia:$PATH"
 
+# add homebrew stuff? to PATH
+export PATH="/usr/local/sbin:$PATH"
+
 export EDITOR='vim'
 
 # Show git repository in command prompt
@@ -37,3 +40,8 @@ alias redisoff="redis-cli shutdown"
 # locale fix. Can't remember what for.
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+# add ~/.node/bin and  ~/.npm-packages/bin/npm to path.
+# Relates to https://gist.github.com/DanHerbert/9520689
+# (npm/brew fix for osx)
+export PATH="$HOME/.node/bin:$HOME/.npm-packages/bin:$PATH"
