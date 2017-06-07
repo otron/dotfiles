@@ -52,6 +52,7 @@ values."
      ;; version-control
      javascript
      react
+     git
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -296,6 +297,7 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+  (setq-default git-magic-status-fullscreen t)
   )
 
 (defun dotspacemacs/user-config ()
