@@ -7,8 +7,12 @@
 [color]
     ui = true
 [core]
-    excludesfile = /Users/zen/.gitignore_global
+    excludesfile = /Users/odd/.gitignore_global
     pager = less -FXRS -x4
-    editor = vim
+    editor = /usr/bin/vim
 [alias]
     l = log --oneline -1
+    logs = "!git --no-pager log --format='%Cred%h %Cgreen%ar %Creset%an: %s'"
+    co = checkout
+    s = "!git status | sed -n 2p; git status -s"
+    mff = "merge --ff-only"
