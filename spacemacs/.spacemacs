@@ -313,6 +313,7 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (editorconfig-mode 1)
   (global-linum-mode) ; show line numbers
+  (setq company-minimum-prefix-length 2)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
