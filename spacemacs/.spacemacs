@@ -298,7 +298,10 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  (setq-default git-magic-status-fullscreen t)
+  (setq-default git-magic-status-fullscreen t
+                js2-basic-offset 2
+                js-indent-level 2
+                standard-indent 2)
   )
 
 (defun dotspacemacs/user-config ()
