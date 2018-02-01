@@ -1,20 +1,24 @@
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _expand _complete _ignored
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'r:|[._-]=** r:|=**' 'l:|=* r:|=*'
+zstyle ':completion:*' max-errors 2
+zstyle :compinstall filename '/home/odd/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=2500
+# End of lines configured by zsh-newuser-install
+#
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-# adding julia to PATH
-export PATH="/home/$USER/julia:$PATH"
-# add homebrew stuff? to PATH
-export PATH="/usr/local/sbin:$PATH"
-# add ~/.node/bin and  ~/.npm-packages/bin/npm to path.
-# Relates to https://gist.github.com/DanHerbert/9520689
-# (npm/brew fix for osx)
-export PATH="$HOME/.node/bin:$HOME/.npm-packages/bin:$PATH"
-# android dev/react native stuff
-export ANDROID_HOME=${HOME}/Library/Android/sdk
-export PATH=${PATH}:${ANDROID_HOME}/tools
-export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/odd/.oh-my-zsh
+ZSH=/usr/share/oh-my-zsh/
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -32,7 +36,7 @@ ZSH_THEME="lambda"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_ZSH_DAYS=6
+export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -63,9 +67,8 @@ export UPDATE_ZSH_DAYS=6
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git vi-mode)
 
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -95,9 +98,44 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
+if [[ ! -d $ZSH_CACHE_DIR ]]; then
+  mkdir $ZSH_CACHE_DIR
+fi
+
+source $ZSH/oh-my-zsh.sh
+
+setxkbmap us -option "caps:escape" -variant mac -option "lv3:alt_switch"
+# rebind print screen to super_r/windows key (xbone)
+xmodmap -e "keycode 107 = Super_R"
+
+# swap alt and windows/super keys
+# xmodmap -e "keycode 133 = ISO_Level3_Shift"
+# xmodmap -e "keycode 64 = Super_L"
+# xmodmap -e "keycode 108 = Super_R"
+# xmodmap -e "keycode 107 = ISO_Level3_Shift"
+
+export PATH=$PATH:$HOME/.local/lib/python3.6/site-packages
+export PATH=$PATH:$HOME/.yarn/bin
+export PATH=$PATH:$HOME/bin
+export PATH=$PATH:/usr/bin:/usr/local/bin
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 #
-alias keepass="/Library/Frameworks/Mono.framework/Versions/2.10.12/bin/mono $HOME/Dropbox/Private/KeePass/KeePass.exe"
-alias startdocker="\"/Applications/Docker/Docker Quickstart Terminal.app/Contents/Resources/Scripts/start.sh\""
-alias proxyoff="networksetup -setsocksfirewallproxystate \"Wi-Fi\" off"
-alias proxyon="networksetup -setsocksfirewallproxystate \"Wi-Fi\" on"
-source ~/.bash_aliases
+
+# enable vi mode
+bindkey -v
+# thanks http://coryklein.com/vi/2015/09/17/a-working-vi-mode-indicator-in-zsh.html
+precmd() { RPROMPT="" }
+function zle-line-init zle-keymap-select {
+   VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
+   RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
+   zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+export KEYTIMEOUT=1
+
+export VISUAL="vim"
