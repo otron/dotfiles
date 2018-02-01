@@ -18,3 +18,4 @@
     mff = "merge --ff-only"
     b = "branch"
     ba = "branch --all"
+    ca = "commit --amend"
