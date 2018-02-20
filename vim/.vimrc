@@ -15,7 +15,6 @@ Plugin 'gmarik/Vundle.vim'
 " plugin on GitHub repo
 "Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
-"Plugin 'L9'
 " Git plugin not hosted on GitHub
 "Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
@@ -38,6 +37,9 @@ if has('gui_running')
     Plugin 'scrooloose/syntastic'
     Plugin 'altercation/vim-colors-solarized.git'
 endif
+
+Plugin 'tpope/vim-fugitive'
+Plugin 'L9'
 
 " Added in preparation for react/reflux/redux project
 Plugin 'pangloss/vim-javascript'
@@ -77,8 +79,8 @@ set shiftwidth=4
 " always expand tabs to spaces
 set expandtab
 
-" show line numbers
-set number
+" show relative line numbers
+set relativenumber
 
 " show column ruler
 set ruler
