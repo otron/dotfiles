@@ -31,10 +31,13 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     vimscript
+     php
      haskell
      python
      sql
      markdown
+     ruby
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -57,6 +60,7 @@ values."
      javascript
      react
      git
+     github
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
