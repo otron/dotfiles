@@ -71,6 +71,8 @@ values."
      editorconfig
      graphql-mode
      htmlize
+     dockerfile-mode
+     docker-compose-mode
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -334,6 +336,9 @@ you should place your code here."
   (global-linum-mode) ; show line numbers
   (setq helm-exit-idle-delay 0) ; fix 'display not ready' (https://github.com/emacs-helm/helm/issues/550)
   (setq company-minimum-prefix-length 2)
+  (require 'dockerfile-mode)
+  (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
+  (require 'docker-compose-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
