@@ -1,21 +1,37 @@
 # This is Git's per-user configuration file.
 [user]
-    name = otron
-    email =
+	name = otron
+	email =
 [push]
-    default = simple
+	default = simple
 [color]
-    ui = true
+	ui = true
 [core]
-    excludesfile = /Users/odd/.gitignore_global
-    pager = less -FXRS -x4
-    editor = /usr/bin/vim
+	excludesfile = /Users/odd/.gitignore_global
+	pager = less -FXRS -x4
+	editor = /usr/bin/vim
 [alias]
-    l = log --oneline -1
-    logs = "!git --no-pager log --format='%Cred%h %Cgreen%ar %Creset%an: %s'"
-    co = checkout
-    s = "!git status | sed -n 2p; git status -s"
-    mff = "merge --ff-only"
-    b = "branch"
-    ba = "branch --all"
-    ca = "commit --amend"
+	l ="!git --no-pager log --oneline -1"
+	logs = "!git --no-pager log --format='%Cred%h %Cgreen%ar %Creset%an: %s'"
+	co = checkout
+	s = "!git status | sed -n 2p; git status -s"
+	mff = "merge --ff-only"
+	b = "branch"
+	ba = "branch --all"
+	ca = "commit --amend"
+	np = "!git --no-pager"
+	files-changed = "diff-tree --no-commit-id --name-only -r"
+	files-changed-last = "diff-tree --no-commit-id --name-only -r HEAD"
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[magithub]
+	online = false
+[magithub "status"]
+	includeStatusHeader = false
+	includePullRequestsSection = false
+	includeIssuesSection = false
+[pager]
+	branch = false
