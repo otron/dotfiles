@@ -1,29 +1,20 @@
-# The following lines were added by compinstall
-
-zstyle ':completion:*' completer _expand _complete _ignored
-zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'r:|[._-]=** r:|=**' 'l:|=* r:|=*'
-zstyle ':completion:*' max-errors 2
-zstyle :compinstall filename '/home/odd/.zshrc'
-
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=2500
-# End of lines configured by zsh-newuser-install
-#
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-ZSH=/usr/share/oh-my-zsh/
+  export ZSH=/home/odd/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="lambda"
+
+# Set list of themes to load
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -36,7 +27,7 @@ ZSH_THEME="lambda"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_ZSH_DAYS=13
+# export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -67,8 +58,11 @@ export UPDATE_ZSH_DAYS=13
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode)
+plugins=(
+  git
+)
 
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -99,29 +93,12 @@ plugins=(git vi-mode)
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
-if [[ ! -d $ZSH_CACHE_DIR ]]; then
-  mkdir $ZSH_CACHE_DIR
-fi
 
-source $ZSH/oh-my-zsh.sh
-
+# USER CONFIG
 setxkbmap us -option "caps:escape" -variant mac -option "lv3:alt_switch"
-# rebind print screen to super_r/windows key (xbone)
+
+# rebind print screen to super_r/windows key
 xmodmap -e "keycode 107 = Super_R"
-
-# swap alt and windows/super keys
-# xmodmap -e "keycode 133 = ISO_Level3_Shift"
-# xmodmap -e "keycode 64 = Super_L"
-# xmodmap -e "keycode 108 = Super_R"
-# xmodmap -e "keycode 107 = ISO_Level3_Shift"
-
-export PATH=$PATH:$HOME/.local/lib/python3.6/site-packages
-export PATH=$PATH:$HOME/.yarn/bin
-export PATH=$PATH:$HOME/bin
-export PATH=$PATH:/usr/bin:/usr/local/bin
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-#
 
 # enable vi mode
 bindkey -v
@@ -139,3 +116,25 @@ zle -N zle-keymap-select
 export KEYTIMEOUT=1
 
 export VISUAL="vim"
+export EDITOR="vim"
+
+export TERM="rxvt-unicode"
+
+export BROWSER="/usr/bin/firefox"
+
+alias d-c="docker-compose"
+
+# start ssh-agent automatically, ensure that only one ssh-agent process runs at a time
+# https://wiki.archlinux.org/index.php/SSH_keys#SSH_agents
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent > ~/.ssh-agent-thing
+fi
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+    eval "$(<~/.ssh-agent-thing)"
+fi
+
+# nvm/node version manager stuff
+export NVM_DIR="$(realpath $HOME/.nvm)"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+source /usr/share/nvm/init-nvm.sh
