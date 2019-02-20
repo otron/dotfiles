@@ -447,13 +447,18 @@ mode "$mode_gaps_outer" {
 }
 
 ##### User config bby
-# assign [class="Slack"] $ws9
-# for_window [class="Spotify"] move to workspace $ws0
-# assign [class="Google-chrome" window_role="app" title="Signal"] $ws9
-#
+
 # screenshot active window
 bindsym $mod+Ctrl+s exec --no-startup-id i3-scrot -w
 # screenshot everything
 bindsym $mod+Mod1+s exec --no-startup-id i3-scrot
 # screenshot selection
 bindsym $mod+Ctrl+Shift+s exec --no-startup-id i3-scrot -s
+
+# audio controls (odd-ergodox-v11 +)
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next --player=spotify
+bindsym XF86AudioPrev exec playerctl previous --player=spotify
+
+### keybinding to reset display settings
+bindsym $mod+Ctrl+a exec source /home/odd/displays_toggle_reset.sh
